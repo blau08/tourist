@@ -1,16 +1,16 @@
 require("sinatra")
 require("sinatra/reloader")
 also_reload("lib/**/*.rb")
-require("./lib/task")
+require("./lib/countries")
 
 get("/") do
-  @tasks = Task.all()
+  @countries = Countries.all()
   erb(:index)
 end
 
-post("/tasks") do
-  description = params.fetch("description")
-  task = Task.new(description)
-  task.save()
+post("/countries") do
+  country = params.fetch("country")
+  country = Countries.new(country)
+  countries.save()
   erb(:success)
 end
